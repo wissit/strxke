@@ -1,0 +1,25 @@
+# STRXKE Apparel Co. - Audit & Tooling Gitignore
+mockups/raw_2000x2000/
+**/mockups/raw_2000x2000/
+qa_proofs/
+**/qa_proofs/
+debug_scratch/
+**/debug_scratch/
+*.tmp
+__pycache__/
+*.pyc
+*.psd
+
+# Heavy Raster / Production Print Binaries (Hosted on Shopify CDN / Printful)
+print_ready_4500x5400/
+**/production_png/
+**/mockups/
+!**/mockups/*.json
+**/previews_and_mockups/
+**/archive/
+**/source_assets/
+
+
+
+
+
