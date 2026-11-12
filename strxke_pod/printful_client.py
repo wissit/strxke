@@ -220,8 +220,18 @@ class PrintfulClient:
         }
 
         retries_404 = 0
+        connection_retries = 0
         while True:
-            resp = requests.put(url, headers=self.get_headers(), json=payload, timeout=30)
+            try:
+                resp = requests.put(url, headers=self.get_headers(), json=payload, timeout=30)
+            except (requests.exceptions.RequestException, ConnectionError) as conn_err:
+                connection_retries += 1
+                if connection_retries > 5:
+                    raise
+                print(f"[PrintfulClient] Network connection error: {conn_err}. Retrying in 5s (attempt {connection_retries}/5)...")
+                time.sleep(5)
+                continue
+
             if resp.status_code == 429:
                 wait_s = int(resp.headers.get("Retry-After", 30))
                 print(f"[PrintfulClient] Rate Limit on sync variant @{shopify_variant_id}. Waiting {wait_s}s...")

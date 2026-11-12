@@ -84,6 +84,7 @@ class ProductDeployer:
         crop_type: str = "standing",
         masters_cache_path: Optional[str] = None,
         skip_mockup_generation: bool = False,
+        force_reupload: bool = False,
     ) -> Dict[str, Any]:
         """Runs the entire end-to-end production deployment pipeline."""
         print(f"\n=======================================================")
@@ -102,6 +103,7 @@ class ProductDeployer:
             master2_path=master2_path,
             product_slug=product_slug,
             cache_json_path=masters_cache_path,
+            force_reupload=force_reupload,
         )
 
         # 2. Mockup Generation
