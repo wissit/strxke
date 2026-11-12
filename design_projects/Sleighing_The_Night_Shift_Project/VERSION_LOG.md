@@ -1,5 +1,23 @@
 # Sleighing the Night Shift Tee — Version Log
 
+## [v2.2] - 2026-11-12
+- **User Photopea Dark Garment Master Deployment & Full Redeployment**:
+  - Archived superseded Master 2 to `archive/v_20261112_214000/`.
+  - Replaced `Master2_DarkGarments.png` and `Master2_DarkGarments.psd` with the user's exact manually cleaned Dark Garment artwork from `Manually Cleaned using Photopea/Sleighing_Master2_DarkGarments - Copy.png` (4500x5400 @ 300 DPI, RGBA).
+  - Staged new Master 2 to Shopify CDN:
+    - CDN URL: `https://cdn.shopify.com/s/files/1/1020/2385/6491/files/Master2_DarkGarments_2d228d91-54e7-48b0-94b7-7a970acb89eb.png?v=1794512470`
+    - Printful File ID: `1109753359`
+  - Retained verified Master 1 Light Garment artwork:
+    - CDN URL: `https://cdn.shopify.com/s/files/1/1020/2385/6491/files/Master1_LightGarments_2da18b8b-5043-4294-8a5b-8316325f66de.png?v=1794479164`
+    - Printful File ID: `1109388129`
+  - Synchronized all 35 Printful variants (`PUT /sync/variant/@...`):
+    - Pepper (`S`–`4XL`) -> Master 2 File ID `1109753359`
+    - Khaki, Ivory, White, Granite (`S`–`4XL`) -> Master 1 File ID `1109388129`
+  - Regenerated raw 2000x2000 mockups on Printful Mockup API for Pepper (Flat-Lay and Female Lifestyle) using new Master 2 CDN URL.
+  - Re-cropped 1:1 1500x1500px catalog flat-lays and lifestyle fits.
+  - Purged old gallery and uploaded 7 fresh standardized mockups to Shopify Product `15314919326059` with Pepper at Slot 1 linked to Pepper variants.
+  - Verified live storefront inventory: 35/35 variants in stock with ZERO strikethroughs.
+
 ## [v2.1] - 2026-11-12
 - **Photopea Cleaned Master Deployment & Media Gallery Refresh**:
   - Archived previous production files to `archive/v_20261112_122000/`.
